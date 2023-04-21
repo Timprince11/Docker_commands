@@ -2,4 +2,9 @@ docker login
 docker logout 
 docker version 
 docker info --details about config and setup eg no of containers running  
-docker container run --publish 
+docker container run --publish 80:80 nginx - keeps it running
+docker container run --publish 80:80 --detach nginx - runs the cont in the environment  
+docker container ls -a - shows containers stopped and running 
+docker container run --publish 80:80 --detach --name webhost nginx  - Gives the container a name while running in the env 
+docker container logs webhost  - shows the log events from the webhost container 
+docker container top webhost  -- see the processes running on the container. The webhost is the name of the container 
