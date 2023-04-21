@@ -1,2 +1,5 @@
 docker login 
 docker logout 
+docker version 
+docker info --details about config and setup eg no of containers running  
+docker container run --publish 
