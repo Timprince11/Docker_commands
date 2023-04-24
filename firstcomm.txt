@@ -19,3 +19,17 @@ ps aux -- Shows all the running processes on a system
 
 docker container run -d -p 3306:3306 --name db -e MYSQL_RANDOM_ROOT_PASSWORD=yes mysql ==starting up a mysql cont while using an env variable 
 docker container logs db | grep PASSWORD  == To check for the password 
+
+
+docker container inspect - shows metadata about a container(startup, config , volumes, networking etc) 
+docker container stats - shows live performance data for all containers  
+
+docker container run -it - to get into the shell of the container  
+
+-t , -tty - stimulates a real terminal(similar to SSH)   
+-i - Keeps session open so we can keep running more commands. 
+
+docker container exec -it <name of container> /bin/bash - Run additional commands in existing containers  
+docker container exec -i --tty <name of container> /bin/bash
+
+
