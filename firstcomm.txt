@@ -30,6 +30,11 @@ docker container run -it - to get into the shell of the container
 -i - Keeps session open so we can keep running more commands. 
 
 docker container exec -it <name of container> /bin/bash - Run additional commands in existing containers  
-docker container exec -i --tty <name of container> /bin/bash
+docker container exec -i --tty <name of container> /bin/bash  
+
+docker container run -it --name dodi nginx bash   - This takes you to the shell of the cont , and when you exit the container, it stops automatically 
+runs a container named dodi using the nginx image  
+
+
 
 
