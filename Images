@@ -1,0 +1,35 @@
+IMAGES  
+
+What's an Image: App binaries and dependencies for your app and the metadata on how to run it.
+
+docker history mysql = To see what was added while building the image 
+docker image inspect mysql = To see all about the image. 
+
+docker image ls - To see all your images  
+docker image tag < existing image > < new name of image >:<tag> = Image has to be existing on your repo  
+
+docker image push < image/tag > = Image has to be exisiting on your repo  
+
+================== DOCKERFILE ====================
+ENV: For environment variables. The main way we set keys and values for container building. That's because they work on all OS. 
+
+RUN: To run shell scripts 
+
+RUN: 
+Docker can handle logs. We need to point the logs to "stdout" and "stderr" -> We can forward requests and error logs to docker log collector.  
+
+WORKDIR: Used to chage dir (Better than using RUN cd /some/path)..saves time and creates less confusion
+
+EXPOSE(for ports): The ports will not be open automatically. This is dont to expose the ports on the docker virtual network  
+                   -p is still needed to open/forward the ports on the host  
+
+CMD: command that will be run anytime we startup a container or restart a container  
+=================================================================================== 
+
+## Note: Keep what changes the least at the top og your dockerfile and what changes the least at the bottom of the dockerfile. 
+
+
+docker image build -t <name of your image:<tag>> . 
+
+
+
