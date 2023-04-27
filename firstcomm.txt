@@ -40,5 +40,21 @@ docker container run -it --name dodi nginx bash   - This takes you to the shell 
 runs a container named dodi using the nginx image  
 
 
+==================== PORT ============================ 
+docker container port <name of container> - Shows you which ports are open in the container  
+
+docker container inspect --format '{{ .NetworkSettings.IPAddress }}' <name of container >
+ 
+=============== NETWORK ===================== 
+docker network ls - shows networks 
+docker network inspect <name of network to inspect>- insoects a newtowk  
+docker network create <name of network> -- Creates a network
+docker network create --driver  - creates a network  
+docker network connect - Attach a network to a container 
+docker network disconnect - Detach a network from container  
+
+docker container run -d --name new_nginx --network my_app_net nginx  - creats a new container and adds it to a network  
 
 
+========= IMAGES ====== 
+docker image rmi <image1> <image2>   - To delete multiple images 
