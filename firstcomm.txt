@@ -57,4 +57,20 @@ docker container run -d --name new_nginx --network my_app_net nginx  - creats a 
 
 
 ========= IMAGES ====== 
-docker image rmi <image1> <image2>   - To delete multiple images 
+docker image rmi <image1> <image2>   - To delete multiple images  
+
+docker tag <image-name> <reponame/imagename> - to tag an image  
+
+docker push <reponame/imagename> 
+
+============================= 
+
+docker system df - To see spaces used by img, cont and cache on your docker engine
+
+docker system prune - to remove all stopped cont, unused images and cache 
+
+docker system prune -a - To remove everything on your docker 
+
+============================= 
+
+
