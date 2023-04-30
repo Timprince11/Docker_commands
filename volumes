@@ -6,5 +6,13 @@ docker container run -d --name mysql3 -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysq
 
 You can continously use one named volume so u have presistence with your data.
 
-docker container run -d --name nginx -p 80:80 -v $(pwd):/usr/share/nginx/html nginx - Mapping the volume to the pwd 
 
+
+Bind mount 
+Maps a host file or directory to a container file or directory 
+Basically two locations pointing to the same files 
+they are host specific, that's why u can only use them in a Dockerfile but in a run command.  
+
+docker container run -d --name nginx -p 80:80 -v $(pwd):/usr/share/nginx/html nginx - Mapping the volume to the pwd (BIND MOUNT) 
+
+replacing the working directory with the /usr/....path 
