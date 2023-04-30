@@ -17,4 +17,9 @@ docker container run -d --name nginx -p 80:80 -v $(pwd):/usr/share/nginx/html ng
 Note: nginx already has a html path which you replaced with your own html path  
 
 
-replacing the working directory with the /usr/....path 
+replacing the working directory with the /usr/....path  
+
+Creating postgres db with mounted volume 
+
+docker run --name psql2 -e POSTGRES_PASSWORD=mysecretpassword -v postgres:/var/lib/postgresql/data -d postgres 
+docker container logs -f psql2 - to follow the logs 
