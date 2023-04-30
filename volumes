@@ -1,0 +1,10 @@
+docker volume prune - To delete all volumes  
+
+docker image insoect mysql -- you'll see the vol path from the dockerfile 
+
+docker container run -d --name mysql3 -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql - Named volumes(gives the vol a friendly name)  
+
+You can continously use one named volume so u have presistence with your data.
+
+docker container run -d --name nginx -p 80:80 -v $(pwd):/usr/share/nginx/html nginx - Mapping the volume to the pwd 
+
