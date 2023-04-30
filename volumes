@@ -14,5 +14,7 @@ Basically two locations pointing to the same files
 they are host specific, that's why u can only use them in a Dockerfile but in a run command.  
 
 docker container run -d --name nginx -p 80:80 -v $(pwd):/usr/share/nginx/html nginx - Mapping the volume to the pwd (BIND MOUNT) 
+Note: nginx already has a html path which you replaced with your own html path  
+
 
 replacing the working directory with the /usr/....path 
