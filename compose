@@ -1,0 +1,33 @@
+It is divided into two parts 
+
+===== YAML formatted file: 
+Describes solution options for 
+- Containers 
+- Networks 
+- Volumes  
+
+======= CLI tool (docker-compose) 
+used for local dev/test automation with the YAML files  
+
+Example of a compose file (This file replaces the shell script)
+
+services:  # containers. same as docker run
+  servicename: # a friendly name. this is also DNS name inside network
+    image: # Optional if you use build:
+    command: # Optional, replace the default CMD specified by the image
+    environment: # Optional, same as -e in docker run
+    volumes: # Optional, same as -v in docker run
+  servicename2:
+
+volumes: # Optional, same as docker volume create
+
+networks: # Optional, same as docker network create 
+
+Docker Compose CLI 
+
+Not a prod-grade tool but Ideal for local dev and test 
+Most Common commands are: 
+docker-compose up #setup volumes /networks and start all containers 
+docker-compose down #stop all containers and remove cont/vol/net 
+
+
