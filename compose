@@ -36,4 +36,10 @@ docker compose build -
 
 docker compose up --build - 
 
+docker compose down --rmi local - To delete the docker compose image 
+
+docker compose down --help : To see how to use docker compose down 
+
+
+
 
