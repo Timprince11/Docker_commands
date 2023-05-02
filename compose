@@ -28,6 +28,12 @@ Docker Compose CLI
 Not a prod-grade tool but Ideal for local dev and test 
 Most Common commands are: 
 docker-compose up #setup volumes /networks and start all containers 
-docker-compose down #stop all containers and remove cont/vol/net 
+docker-compose down #stop all containers and remove cont/vol/net  
+
+docker compose down -v = removes volumes built with docker compose file  
+
+docker compose build -  
+
+docker compose up --build - 
 
 
