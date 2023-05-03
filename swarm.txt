@@ -1,0 +1,9 @@
+What is swarm? 
+
+A server clustering solution that brings together differemt OS or hosts into a single managable unit so that we can ochestrate the lifecycle of our container. 
+
+Divided into Manager Nodes and worker nodes. 
+
+Manager Nodes: They have a database on them called Raft Database. It solves their configuration , and gives them all the information they need to have to be the
+authority they need inside the swarm. 
+
