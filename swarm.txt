@@ -7,3 +7,7 @@ Divided into Manager Nodes and worker nodes.
 Manager Nodes: They have a database on them called Raft Database. It solves their configuration , and gives them all the information they need to have to be the
 authority they need inside the swarm. 
 
+
+docker swarm init - Initialize swarm 
+
+raft is a protocol 
