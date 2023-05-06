@@ -1,3 +1,12 @@
 
-docker container inspect --format '{{ .NetworkSettings.IPAddress }}' < container name > 
+docker network ls - shows networks 
+docker network inspect <name of network to inspect>- insoects a newtowk  
+docker network create <name of network> -- Creates a network with a driver bridge which is the default driver
+docker network create --driver  - creates a network  
+docker network connect - Attach a network to a container 
+docker network disconnect - Detach a network from container on a specific virtual network 
+
+docker container run -d --name new_nginx --network <name of network created> nginx  - creats a new container and adds it to a network   
+
+docker container inspect --format '{{ .NetworkSettings.IPAddress }}' < container name > - To know the IP address of a container  
 
