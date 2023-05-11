@@ -74,6 +74,27 @@ They look like files in containers but are actually in-memory fs
 secrets are stored in the swarm db, it's a "swarm-only" thing. U can't have secrets without Swarm 
 Local docker-compose can use file-based secrets, but that's not secure 
 
+======= CREATING A SECRET ========================= 
+
+You can have the secret in a file and then create a secret by pointing to that file. 
+Example if a file with my secret is called psql_user.txt you can create a secret file pointing to it with the command: docker secret create psql_user psql_user.txt  
+
+If you want to echo a password in, use te command : echo "myDBpassWORD" | docker secret create psql_pass -   
+notice the "-" at the end which is telling it to read from the standard input. 
+
+
+Creating a secret while spinning up a container 
+
+docker service create --name psql --secret psql_user --secret psql_pass -e POSTGRES_PASSWORD_FILE=/run/secrets/psql_pass -e POSTGRES_USER_FILE=/run/secrets/psql_user postgres 
+
+u can go to the container shell and take a look at the secret. 
+
+To remove the secret, you can use 
+docker service update --secret-rm 
+
+
+
+ 
 
 
 
