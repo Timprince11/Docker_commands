@@ -7,7 +7,26 @@ Divided into Manager Nodes and worker nodes.
 Manager Nodes: They have a database on them called Raft Database. It solves their configuration , and gives them all the information they need to have to be the
 authority they need inside the swarm. 
 
-docker swarm init - Initialize swarm 
+docker swarm init - Initialize swarm  
+docker service rm - to remove swarm services 
+docker service ls - to see services started
+
+docker service ps psql -used to list the replicas (tasks) of a specific Docker service named "psql" within a Docker Swarm cluster.
+When you run docker service ps psql, it will provide a table with detailed information about each replica (task) of the "psql" service, including:
+
+ID: The unique ID of the replica.
+NAME: The name of the replica.
+IMAGE: The Docker image used for the replica.
+NODE: The node where the replica is running.
+ERROR: Any error message associated with the replica.
+CURRENT STATE: The current state of the replica (e.g., Running, Completed, Shutdown).
+ERRORS: The number of times the replica encountered errors.
+PORTS: The published ports associated with the replica.
+
+
+
+
+
 raft is a protocol   
 
 Overlay Multi-Host Networking   
