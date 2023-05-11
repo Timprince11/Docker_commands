@@ -43,4 +43,17 @@ docker network ls
 docker service create --name psql --network mydrupal -e POSTGRES_PASSWORD=mypass postgres
 docker service create --name drupal --network mydrupal -p 80:80 drupal 
 docker service ls - Do this multiple times after the previous commands to see the power of the VP and Routing mesh power
-watch docker service ls -- To constantly run your service commands to see if ther are any differences.
+watch docker service ls -- To constantly run your service commands to see if ther are any differences.  
+
+
+Docker adds a new layer of abstraction to Swarm called Stacks 
+Stacks accepts compose files as their dev=clerative defination for services, networks and volumes  
+
+"docker stack deploy" is used instead of "docker service create" 
+stacks manages all those objects for us including overlay network per stack. Adds stack name to the start of their name.  
+new "deploy:" key in Compose file. Cant do "build:" 
+compose ignores "deploy:", swarm ignores "build:" 
+
+
+
+
