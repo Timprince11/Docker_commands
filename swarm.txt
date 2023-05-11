@@ -55,7 +55,27 @@ new "deploy:" key in Compose file. Cant do "build:"
 compose ignores "deploy:", swarm ignores "build:"  
 
 using a stack file example-voting-app-stack.yml , the ffg command will spin up a swarm 
-docker stack deploy -c example-voting-app-stack.yml <stack name> 
+docker stack deploy -c example-voting-app-stack.yml <stack name>  
+
+If you change something in the stack file you can apply the code again and the stack will be updated  
+
+
+======================== SECRETS STORAGE ================================ 
+Swarm Raft DB is encrypted on Disk 
+Only stored on Disk on Managed nodes
+Default is Managers and Workers "control plane" is TLS + Manual Auth 
+Secrets are first stored in Swarm and then assigned to a Service(S) 
+Only containers in assigned service can see them.  
+
+They look like files in containers but are actually in-memory fs  
+./run/secrets/<secret_name> 
+./run/secrets/<secret_alias> 
+
+secrets are stored in the swarm db, it's a "swarm-only" thing. U can't have secrets without Swarm 
+Local docker-compose can use file-based secrets, but that's not secure 
+
+
+
 
 
 
