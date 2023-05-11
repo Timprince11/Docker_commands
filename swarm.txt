@@ -52,7 +52,12 @@ Stacks accepts compose files as their dev=clerative defination for services, net
 "docker stack deploy" is used instead of "docker service create" 
 stacks manages all those objects for us including overlay network per stack. Adds stack name to the start of their name.  
 new "deploy:" key in Compose file. Cant do "build:" 
-compose ignores "deploy:", swarm ignores "build:" 
+compose ignores "deploy:", swarm ignores "build:"  
+
+using a stack file example-voting-app-stack.yml , the ffg command will spin up a swarm 
+docker stack deploy -c example-voting-app-stack.yml <stack name> 
+
+
 
 
 
