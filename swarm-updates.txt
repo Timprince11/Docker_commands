@@ -1,0 +1,30 @@
+Examples 
+
+Update the images to a newer version 
+docker service update --image myapp:1.2.1 <servicename> 
+
+Adding and environment variable and remove a port 
+docker service update --env-add NODE_ENV=production --publish-rm 8080 
+
+Change number of replicas of two services 
+docker service scale web=8 api=6 
+
+========= HOW ??? ============
+
+You just need to edit the YAML file, then use 
+
+docker stack deploy -c file.yml <stackname> 
+
+----------------------------- 
+
+ALSO, 
+
+using this command to create a service: 
+
+- docker service create -p 8080:80 --name web nginx:1.13.7
+
+Updates 
+docker service scale web=5 - scale up the service 
+docker service update --image nginx:1.13.6 web - Update the image 
+docker service update --publish-rm 8088 --publish-add 9090:80 web - update port 
+docker service update --force web - roll through and replace the tasks. This helps to get arround an uneven ammount of workload on your nodes 
