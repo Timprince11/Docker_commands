@@ -94,6 +94,67 @@ docker service update --secret-rm
 
 
 
+======= CREATING A SECRET ========================= 
+
+You can have the secret in a file and then create a secret by pointing to that file. 
+Example if a file with my secret is called psql_user.txt you can create a secret file pointing to it with the command: docker secret create psql_user psql_user.txt  
+
+If you want to echo a password in, use te command : echo "myDBpassWORD" | docker secret create psql_pass -   
+notice the "-" at the end which is telling it to read from the standard input. 
+
+
+Creating a secret while spinning up a container 
+
+docker service create --name psql --secret psql_user --secret psql_pass -e POSTGRES_PASSWORD_FILE=/run/secrets/psql_pass -e POSTGRES_USER_FILE=/run/secrets/psql_user postgres 
+
+u can go to the container shell and take a look at the secret. 
+
+To remove the secret, you can use 
+docker service update --secret-rm  
+
+You can also use a compose file to start the secrets. 
+
+YAML FILE 
+
+version: '3.1'
+services:
+
+  drupal:
+    image: drupal:8.2
+    ports:
+      - "8080:80"
+    volumes:
+      - drupal-modules:/var/www/html/modules
+      - drupal-profiles:/var/www/html/profiles       
+      - drupal-sites:/var/www/html/sites      
+      - drupal-themes:/var/www/html/themes
+ 
+  postgres:
+    image: postgres:14.3
+    environment:
+      - POSTGRES_PASSWORD_FILE=/run/secrets/psql-pw  
+    secrets:
+      - psql-pw
+    volumes:
+      - drupal-data:/var/lib/postgresql/data
+
+volumes:
+  drupal-data:
+  drupal-modules:
+  drupal-profiles:
+  drupal-sites:
+  drupal-themes:
+
+secrets:
+  psql-pw: 
+    external: true
+
+
+
+create the secret first.  
+#NOTE THE psql-pw on the yaml file 
+echo "papi" | docker secret create psql-pw -
+docker stack deploy -c docker-compose.yml <name your stack> 
  
 
 
