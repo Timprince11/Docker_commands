@@ -1,0 +1,4 @@
+docker service create --name p2 --health-cmd="pg_isready -U postgres || exit 1" postgres    
+
+U can do docker service inspect <name of service> to see the healthcheck status 
+
