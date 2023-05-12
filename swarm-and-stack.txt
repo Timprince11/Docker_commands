@@ -157,6 +157,10 @@ echo "papi" | docker secret create psql-pw -
 docker stack deploy -c docker-compose.yml <name your stack> 
  
 
+NOTE: when we do "docker stack deploy" on an existing stack, it will deploy the changes as service updates. 
+
+"--start-period" - Adds a buffer of time to allow a service startup before alarming on a failed check 
+
 
 
 
