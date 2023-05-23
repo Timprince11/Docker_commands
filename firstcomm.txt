@@ -1,7 +1,13 @@
 docker login 
 docker logout 
 docker version 
-docker info --details about config and setup eg no of containers running  
+docker info --details about config and setup eg no of containers running   
+
+docker ps -a (see all running containers) 
+docker rm -f <name of container> 
+docker pause <container name>  
+docker unpause <container name> 
+
 
 docker container run --publish 80:80 nginx - keeps it running
 docker container run --publish 80:80 --detach nginx - runs the cont in the environment  
