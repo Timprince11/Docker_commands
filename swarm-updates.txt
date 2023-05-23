@@ -27,4 +27,26 @@ Updates
 docker service scale web=5 - scale up the service 
 docker service update --image nginx:1.13.6 web - Update the image 
 docker service update --publish-rm 8088 --publish-add 9090:80 web - update port 
-docker service update --force web - roll through and replace the tasks. This helps to get arround an uneven ammount of workload on your nodes 
+docker service update --force web - roll through and replace the tasks. This helps to get arround an uneven ammount of workload on your nodes  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+docker service create alpine 8.8.8.8 
+
+docker service create: This command is used to create a new Docker service, which is a long-running task that can be replicated across multiple Docker nodes in a swarm.
+
+alpine: This is the name of the Docker image that will be used to create the service. In this case, it refers to the Alpine Linux image, which is a lightweight Linux distribution commonly used in Docker containers.
+
+8.8.8.8: This is an argument passed to the service create command. It specifies the IP address that will be assigned to the service. By assigning a specific IP address, you can control the network configuration for the service.
+
+It's worth noting that the command you provided is a simplified example, and in a real-world scenario, you would typically specify additional options and configurations for the service, such as specifying the number of replicas, network settings, resource limits, etc.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++   
+
+
+
+
+docker service ls lists all the services running in the Docker Swarm cluster. It provides an overview of the services, including their names, number of replicas, image used, and other details. It doesn't show the individual tasks/containers running as part of each service.
+
+docker service ps <name of service> lists the tasks/containers associated with a specific service. It shows detailed information about each task/container, such as the task ID, container ID, current state, and the node where the task is running. This command provides a more granular view of the service, allowing you to inspect the individual tasks that make up the service.
+
+In summary, docker service ls provides an overview of all services, while docker service ps <name of service> gives you detailed information about the tasks/containers of a specific service.
