@@ -6,7 +6,12 @@ docker info --details about config and setup eg no of containers running
 docker ps -a (see all running containers) 
 docker rm -f <name of container> 
 docker pause <container name>  
-docker unpause <container name> 
+docker unpause <container name>  
+
+docker container create --name=<name of container> <image:<tag>> 
+docker start <container name> -- to start the container  
+
+
 
 
 docker container run --publish 80:80 nginx - keeps it running
