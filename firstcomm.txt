@@ -14,7 +14,14 @@ docker unpause <container name>
 when uploading an image, images are uploaded using the port 5000 
 
 
-Dockerfile is made in a union file system. 
+Dockerfile is made in a union file system. (ufs) 
+
+to search how many images are in the repo and latest you can use the command 
+docker search httpd --limit=5  #where httpd is the name of the image  
+
+To know the parameters of the image use 
+
+docker inspect <image name>
 
 
 
