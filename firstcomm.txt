@@ -27,7 +27,13 @@ to check if it's an official image
 docker search <image name> --limit=5 -f is-official=true  
 
 to see images which it's ratings are more than eg 700 
-docker search <image name> --limit=5 -f is-official=true -f stars=700 
+docker search <image name> --limit=5 -f is-official=true -f stars=700  
+
+to see all the ID of containers 
+docker ps -a -q 
+
+To delete a container 
+docker rm -f $(docker ps -a -q)
 
 
 
