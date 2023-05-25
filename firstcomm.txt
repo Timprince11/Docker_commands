@@ -21,7 +21,15 @@ docker search httpd --limit=5  #where httpd is the name of the image
 
 To know the parameters of the image use 
 
-docker inspect <image name>
+docker inspect <image name> 
+
+to check if it's an official image 
+docker search <image name> --limit=5 -f is-official=true  
+
+to see images which it's ratings are more than eg 700 
+docker search <image name> --limit=5 -f is-official=true -f stars=700 
+
+
 
 
 
