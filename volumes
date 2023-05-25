@@ -23,3 +23,14 @@ Creating postgres db with mounted volume
 
 docker run --name psql2 -e POSTGRES_PASSWORD=mysecretpassword -v postgres:/var/lib/postgresql/data -d postgres 
 docker container logs -f psql2 - to follow the logs 
+
+3 data storage types. 
+
+- mount/bind 
+- Volume 
+- tmpfs (Tempoary file storage) 
+
+What are the different drivers used by docker volumes or storage? 
+- Overlay 
+- Local 
+
