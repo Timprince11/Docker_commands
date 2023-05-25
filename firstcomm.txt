@@ -12,7 +12,7 @@ docker unpause <container name>
 /var/lib/docker/image/overlay --- to see where the images are stored   
 
 when uploading an image, images are uploaded using the port 5000 
-
+touch {1..100}.txt - to create 100 files
 
 Dockerfile is made in a union file system. (ufs) 
 
