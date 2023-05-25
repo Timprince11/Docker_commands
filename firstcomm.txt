@@ -51,7 +51,7 @@ docker pull docker.io/geologicai/mpiimage:0.0.2
 to delete an image 
 docker rmi <image name > 
 
-
+============= in MYSQL the database is created at /var/lib/mysql ==========
 
 docker container run --publish 80:80 nginx - keeps it running
 docker container run --publish 80:80 --detach nginx - runs the cont in the environment  
