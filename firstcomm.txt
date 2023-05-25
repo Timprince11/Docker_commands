@@ -5,12 +5,30 @@ docker info --details about config and setup eg no of containers running
 
 docker ps -a (see all running containers) 
 docker rm -f <name of container> 
-docker pause <container name>  
+docker pause <container name> -- Once a container is paused , you can't send traffic to it.  
 docker unpause <container name>  
+
+/var/lib/docker - where docker container is stored in the hard disk    
+/var/lib/docker/image/overlay --- to see where the images are stored   
+
+when uploading an image, images are uploaded using the port 5000 
+
+
+Dockerfile is made in a union file system. 
+
+
+
 
 docker container create --name=<name of container> <image:<tag>> 
 docker start <container name> -- to start the container  
 
+docker run -d --name=<name of container> docker.io/<image:<tag>>  # Note , the "docker.io" is just the registry, it can be changed to any other registry eg redhat 
+
+# Pulling an image from your private registry 
+docker pull docker.io/geologicai/mpiimage:0.0.2 
+
+to delete an image 
+docker rmi <image name > 
 
 
 
