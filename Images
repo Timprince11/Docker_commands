@@ -35,3 +35,13 @@ to build an image from a running container
 docker commit <containerID> <image name>:<tag>
 example: docker commit b8e ubuntu:new
 
+Make an Image a tar file to be exported instead of pushing to the repo 
+docker export <image ID> > <name of tar file>.tar 
+docker export b8e > ubuntu.tar 
+
+To create an image from the tar file 
+docker load < <tar file> 
+
+Create a tar file from an image 
+docker save -o <Name of Tar file>.tar <image name> 
+docker save -o debian.tar debian 
