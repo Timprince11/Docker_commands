@@ -31,5 +31,7 @@ CMD: command that will be run anytime we startup a container or restart a contai
 
 docker image build -t <name of your image:<tag>> . 
 
-
+to build an image from a running container 
+docker commit <containerID> <image name>:<tag>
+example: docker commit b8e ubuntu:new
 
