@@ -28,4 +28,14 @@ docker network create --subnet=99.99.0.0/24 --driver=bridge net1
 docker run -d --name=c2 --network=net1 --ip=99.99.0.99 --hostname=samosa -p
 9091:80 httpd  
 
-curl http://localhost:9091 - To see the content of the html file 
+curl http://localhost:9091 - To see the content of the html file  
+
+DOcker networking subsystem is pluggable using drivers 
+
+bridge: the default network driver 
+host: For standalone containers, remove network isolation between the container and the Docker host, and use the 
+host's networking directly
+none: for this container, disable all networking 
+
+filter is used for port forwarding
+if you want to mask ip from the outside world, use Nat tables
