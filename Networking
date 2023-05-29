@@ -18,5 +18,14 @@ What are the networkig types that docker support
 - null 
 - overlay 
 
+The moment a new network or bridge is created, a new LAN card with it's custom gateway. 
 
+network uses TAP (used for transmitting packages from one LAN card to another) to connect to a container.
 
+# To create a container with custom IP address, hostname and port
+
+docker network create --subnet=99.99.0.0/24 --driver=bridge net1
+docker run -d --name=c2 --network=net1 --ip=99.99.0.99 --hostname=samosa -p
+9091:80 httpd  
+
+curl http://localhost:9091 - To see the content of the html file 
