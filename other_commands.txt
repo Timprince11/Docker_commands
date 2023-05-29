@@ -1,0 +1,8 @@
+ip a s - To show Ip address 
+docker0 - Docker lan card--172.17.0.1/16  
+brctl show - gives bridge information
+df-h - Shows all the mount points and partition information 
+ps -eaf | grep docker - Shows container engine or daemon running in your computer 
+
+docker inspect c2 | grep -i ipaddr - shows IP address of a container 
+
