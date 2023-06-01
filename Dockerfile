@@ -49,6 +49,10 @@ READ: https://github.com/GoogleContainerTools/distroless
 docker rm -f $(docker ps -a -q)- to delete all running containers forcefully  
 docker rmi -f $(docker images -q) - To delete images forcefuly 
 
+To build a docker image from github 
+docker build -t <name of image> <github url(with files containing the dockerfile> 
+
+ONBUILD ENTRYPOINT -- Used to give instructions on how to use the image created.
 
 
 
