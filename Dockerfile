@@ -6,7 +6,7 @@ ADD - Used to download content from the internet , copy or extract
 
 ENV - executed durning the container creation process 
 
-CMD - Start the process inside the container (at least one process must run inside the container)  
+CMD - Start the process inside the container (at least one process must run inside the container) * A process not a command 
 ENTRYPOINT also like cmd, can't be used multiple times. If used ,ultiple times, only the last one will be executed. 
 you can also pass the entrypoint command in a docker run command: docker run -d entrypoint echo "Hello World"..... 
 
@@ -21,6 +21,16 @@ This lets the command ran inside the container to be "ping google.com"--- that's
 you can also change the command via the command line: docker run -d <name of image> yahoo.com  ---- this will run "ping yahoo.com" in the container on startup.
 
 ==============================================================================
+
+================testimage
+FROM centos:7
+
+ENTRYPOINT ["yum", "install","-y"]
+
+CMD ["httpd"] 
+
+if we run the command: docker run -d --name=c9 testimage tree maven... It will only install tree and mave as it would overwrite the httpd in the cmd command
+===================
 
 COPY copy files to the location 
 WORKDIR A 
