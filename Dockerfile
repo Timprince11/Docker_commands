@@ -42,6 +42,9 @@ ARG - gets executed when image creation process is working (image creation)
 
 VOLUME creates a mount point (if used twice, it will create multiple mount points in the container )  
 
+DISTROLESS IMAGES
+READ: https://github.com/GoogleContainerTools/distroless
+
 
 docker rm -f $(docker ps -a -q)- to delete all running containers forcefully  
 docker rmi -f $(docker images -q) - To delete images forcefuly 
