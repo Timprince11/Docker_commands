@@ -6,3 +6,4 @@ ps -eaf | grep docker - Shows container engine or daemon running in your compute
 
 docker inspect c2 | grep -i ipaddr - shows IP address of a container 
 
+dd if=/dev/zero of=1.txt bs=1M count=500  - creates a file named 1.txt and fills it with 500 megabytes of null (zero) bytes using the /dev/zero device as the input source.
