@@ -6,10 +6,19 @@ ADD - Used to download content from the internet , copy or extract
 
 ENV - executed durning the container creation process 
 
-CMD - Start the process inside the container (at least one process must run inside the container) * A process not a command 
+CMD - Start the process inside the container (at least one process must run inside the container) * A process not a command. 
+      most of the linux distro base images found on Docker Hub will usse a shell like /bin/sh or /bin/bash as the 
+      CMD executable.
 ENTRYPOINT also like cmd, can't be used multiple times. If used ,ultiple times, only the last one will be executed. 
-you can also pass the entrypoint command in a docker run command: docker run -d entrypoint echo "Hello World"..... 
+you can also pass the entrypoint command in a docker run command: docker run -d entrypoint echo "Hello World".....  
 
+Using a command in this format, you can overwrite an ENTRYPOINT command 
+docker run --entrypoint google.com demo. * using the --entrypoint. 
+
+CMD and ENTRYPOINT can be overwritten from the command line when starting up a container (There can only be one CMD
+instruction in a Dockerfile)  
+
+Best to start a CMD command using the exec form so it starts as the primary process. 
 ==================================
 To effectively use the entrypoint 
 =================================== 
@@ -52,7 +61,11 @@ docker rmi -f $(docker images -q) - To delete images forcefuly
 To build a docker image from github 
 docker build -t <name of image> <github url(with files containing the dockerfile> 
 
-ONBUILD ENTRYPOINT -- Used to give instructions on how to use the image created.
+ONBUILD ENTRYPOINT -- Used to give instructions on how to use the image created. 
+
+ADD Copies new files, directories or remote file URLs from <src> 
+
+
 
 
 
