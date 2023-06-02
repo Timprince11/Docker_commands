@@ -2,7 +2,8 @@ Naming convention of dockerfiles couldbe
 Dockerfile, 1.df, one.dockerfile
 
 LABEL - about the file
-ADD - Used to download content from the internet , copy or extract 
+ADD - Used to download content from the internet , copy or extract  
+      can copy a directory, URL file and compressed file (adv version of COPY) 
 
 ENV - executed durning the container creation process 
 
@@ -34,14 +35,15 @@ you can also change the command via the command line: docker run -d <name of ima
 ================testimage
 FROM centos:7
 
-ENTRYPOINT ["yum", "install","-y"]
+ENTRYPOINT ["yum", "install","-y"] 
 
 CMD ["httpd"] 
 
 if we run the command: docker run -d --name=c9 testimage tree maven... It will only install tree and mave as it would overwrite the httpd in the cmd command
 ===================
 
-COPY copy files to the location 
+COPY copy files to the location  
+     if you are copying a shell script, make sure it has an executable permission
 WORKDIR A 
 WORKDIR A/B 
 
@@ -68,7 +70,8 @@ ADD Copies new files, directories or remote file URLs from <src>
 
 USER  Sets the Username (or UID) and optionally the user group (or GID) to use when running the  
       image and for any RUN, CMD and ENTRYPOINT instructions that follow itin the Dockerfile.  
-      USER <usuer>[:<group>]
+      USER <usuer>[:<group>] 
+
 
 
 
