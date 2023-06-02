@@ -49,7 +49,8 @@ ENV - gets created durning the container creation process (container creation)
 
 ARG - gets executed when image creation process is working (image creation) 
 
-VOLUME creates a mount point (if used twice, it will create multiple mount points in the container )  
+VOLUME creates a mount point (if used twice, it will create multiple mount points in the container )  e 
+       eg. VOLUME ["/data"]
 
 DISTROLESS IMAGES
 READ: https://github.com/GoogleContainerTools/distroless
@@ -64,6 +65,10 @@ docker build -t <name of image> <github url(with files containing the dockerfile
 ONBUILD ENTRYPOINT -- Used to give instructions on how to use the image created. 
 
 ADD Copies new files, directories or remote file URLs from <src> 
+
+USER  Sets the Username (or UID) and optionally the user group (or GID) to use when running the  
+      image and for any RUN, CMD and ENTRYPOINT instructions that follow itin the Dockerfile.  
+      USER <usuer>[:<group>]
 
 
 
