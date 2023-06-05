@@ -9,7 +9,43 @@ authority they need inside the swarm.
 
 docker swarm init - Initialize swarm  
 docker service rm - to remove swarm services 
-docker service ls - to see services started
+docker service ls - to see services started 
+
+docker swarm init --advertise-addr <MANAGER IP> - Shop Ip's of Masters
+docker swarm join-token worker  
+docker swarm init | tee bootstrap.log - initialize swarm and put content in a boostrap.log file 
+docker swarm join token manager - To add a node as a manager in the swarm (creates a token for the manager)
+docker node ls - to see managers and workers 
+
+Service: 
+The defination of the tasks to execute on the manager or worker 
+eg: 
+docker service create --name webserver --replicas 2 nginx
+
+Once u have deployed a servide to swarm, you are ready to use hr Docker cli to scale the number of containers
+in the service. 
+
+containers running in a service are known as tasks 
+
+There are 2 ways to scale a service in a swarm: 
+- docker service scale webserver=5
+- docker service update --replicas 5 my webserver 
+
+
+Global vs Replicated tasks 
+Global- one task on every node 
+Replicated- You specify the number of Identical tasks you want to run .
+
+
+
+
+
+
+
+
+
+
+
 
 docker service ps psql -used to list the replicas (tasks) of a specific Docker service named "psql" within a Docker Swarm cluster.
 When you run docker service ps psql, it will provide a table with detailed information about each replica (task) of the "psql" service, including:
@@ -55,7 +91,7 @@ TO TEST
 
 docker network create --driver overlay mydrupal 
 docker network ls 
-docker service create --name psql --network mydrupal -e POSTGRES_PASSWORD=mypass postgres
+docker service create --name psql --network mydrupal -e POSTGRES_PASSWORD=mypass postgres (more like starting a container)
 docker service create --name drupal --network mydrupal -p 80:80 drupal 
 docker service ls - Do this multiple times after the previous commands to see the power of the VP and Routing mesh power
 watch docker service ls -- To constantly run your service commands to see if ther are any differences.  
