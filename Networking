@@ -39,3 +39,6 @@ none: for this container, disable all networking
 
 filter is used for port forwarding
 if you want to mask ip from the outside world, use Nat tables
+
+to install bridge utils 
+apt-get install bridge-utils 
