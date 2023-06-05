@@ -24,6 +24,21 @@ ERRORS: The number of times the replica encountered errors.
 PORTS: The published ports associated with the replica.
 
 
+========================= MANAGER NODES =============================== 
+- Dispatches tasks to workers 
+- Perform ochestration and cluster managemnt functions required to maintain the desired state of the swarm 
+- Elects a single leader to conduct ochestration tasks  
+- Good to have odd number of managers , as 1 will be chosen as the manager
+
+========================= WORKER NODES ================================= 
+- An agent runs on eac hworker node and reports the tasks assigned to it 
+- They receive and execute tasks dispatched from manager nodes 
+- Notifies the manager node of the current state of its assigned tasks so that the manager can maintain the desired state of each worker.  
+- Multiple masters are run so that if the manager node goes down, we dont loose our cluster. 
+
+
+
+
 
 
 
