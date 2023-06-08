@@ -24,11 +24,39 @@ using this command to create a service:
 - docker service create -p 8080:80 --name web nginx:1.13.7
 
 Updates 
-docker service scale web=5 - scale up the service 
+docker service scale web=5 - scale up the service  
+docker service update --replicas=2 <name of service> - update service replicas
 docker service update --image nginx:1.13.6 web - Update the image 
 docker service update --publish-rm 8088 --publish-add 9090:80 web - update port 
-docker service update --force web - roll through and replace the tasks. This helps to get arround an uneven ammount of workload on your nodes  
+docker service update --force web - roll through and replace the tasks. This helps to get arround an uneven ammount of workload on your nodes   
+docker service update --image=nginx:perl <name of service> - update the image version  
+docker service ps <name of service> - Notice the change 
+docker service rollback <name of service> - Go back to previous image version 
+docker container rm `docker container ls -aq` -f - to delete all running containers.
+docker service rm <name of service> - To delete service 
 
+
+ docker node update --label-add env=dev <hostname> - adding a label 
+ docker node update --label-add disk=ssd <hostname> - adding a label 
+ docker node inspect Worker1 --pretty - to inspect the hotname .. there you'll be able to see the labels 
+ docker node update --label-add disk=slow --label-add env=uat Worker2  - adding 2 labels at once 
+ 
+ To remove labels 
+ # docker node update --label-rm env --label-rm disk worker1
+# docker node update --label-rm env --label-rm disk worker2 
+
+docker container ls -a --filter name=webserver -q | head -1 - To capture container ID
+
+
+docker swarm leave --force 
+docker swarm leave -f 
+
+
+docker node promote worker1 - Promotes worker to master 
+
+docker node update --availability drain worker1 -- Once a worker is drained, it stops receiving tasks from the master 
+ docker node update --availability active worker1 -- Make the node active again 
+ 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 docker service create alpine 8.8.8.8 
 
