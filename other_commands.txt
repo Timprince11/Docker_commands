@@ -6,4 +6,16 @@ ps -eaf | grep docker - Shows container engine or daemon running in your compute
 
 docker inspect c2 | grep -i ipaddr - shows IP address of a container 
 
-dd if=/dev/zero of=1.txt bs=1M count=500  - creates a file named 1.txt and fills it with 500 megabytes of null (zero) bytes using the /dev/zero device as the input source.
+dd if=/dev/zero of=1.txt bs=1M count=500  - creates a file named 1.txt and fills it with 500 megabytes of null (zero) bytes using the /dev/zero device as the input source. 
+
+====Configuring hostnames=======  
+path= vi/etc/hosts
+
+#Add <masterpublic-ip> <hostname of master> 
+40.87.123.190 master
+
+#Add <worker-01-pub-ip> <hostname of worker 1> 
+40.70.212.75 worker-1
+
+#Add <worker-02-pub-ip> <hostname of worker 2>  
+20.10.168.76 worker-2
