@@ -18,4 +18,8 @@ path= vi/etc/hosts
 40.70.212.75 worker-1
 
 #Add <worker-02-pub-ip> <hostname of worker 2>  
-20.10.168.76 worker-2
+20.10.168.76 worker-2 
+
+telnet 192.168.1.100 80 - to open ports  
+
+sudo hostnamectl set-hostname mlkmsnd
