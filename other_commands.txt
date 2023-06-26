@@ -22,4 +22,11 @@ path= vi/etc/hosts
 
 telnet 192.168.1.100 80 - to open ports  
 
-sudo hostnamectl set-hostname mlkmsnd
+sudo hostnamectl set-hostname mlkmsnd 
+
+
+sudo adduser newuser - add a new user 
+sudo usermod -aG sudo newuser - add a user to sudoers 
+sudo apt-get install build-essential
+
+lsblk - The lsblk command in Linux is used to list information about all available or specified block devices. A block device is a type of device you can read blocks of data from and write blocks of data to, like hard drives, flash drives, and CD-ROMs, but not terminals or mice.
